@@ -1,4 +1,4 @@
-from app.theme.pallets import PALETTES, DEFAULT_PALETTE
+from app.ui.theme.pallets import PALETTES, DEFAULT_PALETTE
 
 class ThemeManager:
 
