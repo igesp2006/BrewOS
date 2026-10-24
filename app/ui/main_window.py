@@ -1,6 +1,7 @@
 import customtkinter as ctk
+from PIL import Image
 from app.ui.theme.manager import ThemeManager,IconManager
-from app.ui.utility.functions import center_window
+from app.ui.ui_utility.functions import center_window
 
 class MainWindow():
 
@@ -131,6 +132,7 @@ class MainWindow():
         self.sep_label.place(x=32,y=505)
         self.quote_label_p1.place(x=30,y=530)
         self.quote_label_p2.place(x=30,y=550)
+        self.widget_mainframe()
 
 
 
@@ -138,8 +140,6 @@ class MainWindow():
 
     def widget_mainframe(self):
         pass
-
-
 
 
 
