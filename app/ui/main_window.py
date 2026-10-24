@@ -8,7 +8,7 @@ class MainWindow():
 
         self.tmn = ThemeManager()
         self.imn = IconManager()
-        self.imn.get_icon("coffee")
+        
         self.bg = self.tmn.get("bg")
         self.root = ctk.CTk()
         self.root.geometry(center_window(self.root,1000,590))
@@ -101,6 +101,24 @@ class MainWindow():
 
 
 
+        self.sep_label = ctk.CTkLabel(self.sidebarleftframe,
+                                    text='_________',
+                                    font=('Inter',14,'bold'),
+                                    text_color=self.tmn.get("text_muted"))
+
+
+
+
+        self.quote_label_p1 = ctk.CTkLabel(self.sidebarleftframe,
+                                        text='Better Coffee',
+                                        font=('Inter',14,'italic','bold'),
+                                        text_color=self.tmn.get("text_muted"))
+
+        self.quote_label_p2 = ctk.CTkLabel(self.sidebarleftframe,
+                                        text='With data',
+                                        font=('Inter',14,'italic'),
+                                        text_color=self.tmn.get("text_muted"))
+
 
 
 
@@ -110,6 +128,9 @@ class MainWindow():
         self.recepies_tab.place(x=20,y=120)
         self.brewlog_tab.place(x=20,y=170)
         self.settings_tab.place(x=20,y=220)
+        self.sep_label.place(x=32,y=505)
+        self.quote_label_p1.place(x=30,y=530)
+        self.quote_label_p2.place(x=30,y=550)
 
 
 
