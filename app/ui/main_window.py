@@ -26,16 +26,16 @@ class MainWindow():
     def widget_sidebar_left(self):
 
         self.sidebarleftframe = ctk.CTkFrame(self.root,
-                                             width=220,
-                                             height=590,
-                                             corner_radius=0,
+                                             width=190,
+                                             height=560,
+                                             corner_radius=20,
                                              bg_color=self.bg,
                                              fg_color=self.tmn.get("surface"))
 
 
 
         self.brewos_label = ctk.CTkLabel(self.sidebarleftframe,
-                                         text="  BrewOS",
+                                         text=" BrewOS",
                                          font=('Inter',24,'bold'),
                                          text_color=self.tmn.get("text"),
                                          image=self.imn.get_icon("coffee",self.tmn.get("accent")),
@@ -46,60 +46,60 @@ class MainWindow():
 
 
         self.home_tab = ctk.CTkButton(self.sidebarleftframe,
-                                      text='  Home',
+                                      text=' Home',
                                       font=('Inter',17,'bold'),
-                                      width=170,
+                                      width=150,
                                       height=40,
                                       anchor='w',
+                                      corner_radius=15,
                                       text_color=self.tmn.get("text"),
                                       fg_color=self.tmn.get("surface"),
                                       hover_color=self.tmn.get("accent_hover"),
                                       image=self.imn.get_icon("house",self.tmn.get("accent")),
-                                      compound='left'
-                                      )
+                                      compound='left')
 
 
 
         self.recepies_tab = ctk.CTkButton(self.sidebarleftframe,
-                                      text='  Recipies',
+                                      text=' Recipies',
                                       font=('Inter',17,'bold'),
-                                      width=170,
+                                      width=150,
                                       height=40,
                                       anchor='w',
+                                      corner_radius=15,
                                       text_color=self.tmn.get("text"),
                                       fg_color=self.tmn.get("surface"),
                                       hover_color=self.tmn.get("accent_hover"),
                                       image=self.imn.get_icon("book-open",self.tmn.get("accent")),
-                                      compound='left'
-                                      )
+                                      compound='left')
 
 
         self.brewlog_tab = ctk.CTkButton(self.sidebarleftframe,
-                                      text='  Brew Log',
+                                      text=' Brew Log',
                                       font=('Inter',17,'bold'),
-                                      width=170,
+                                      width=150,
                                       height=40,
                                       anchor='w',
+                                      corner_radius=15,
                                       text_color=self.tmn.get("text"),
                                       fg_color=self.tmn.get("surface"),
                                       hover_color=self.tmn.get("accent_hover"),
                                       image=self.imn.get_icon("rotate-ccw-clock",self.tmn.get("accent")),
-                                      compound='left'
-                                      )
+                                      compound='left')
 
 
         self.settings_tab = ctk.CTkButton(self.sidebarleftframe,
-                                      text='  Settings',
+                                      text=' Settings',
                                       font=('Inter',17,'bold'),
-                                      width=170,
+                                      width=150,
                                       height=40,
                                       anchor='w',
+                                      corner_radius=15,
                                       text_color=self.tmn.get("text"),
                                       fg_color=self.tmn.get("surface"),
                                       hover_color=self.tmn.get("accent_hover"),
                                       image=self.imn.get_icon("settings",self.tmn.get("accent")),
-                                      compound='left'
-                                      )
+                                      compound='left')
 
 
 
@@ -107,7 +107,6 @@ class MainWindow():
                                     text='_________',
                                     font=('Inter',14,'bold'),
                                     text_color=self.tmn.get("text_muted"))
-
 
 
 
@@ -124,15 +123,17 @@ class MainWindow():
 
 
 
-        self.sidebarleftframe.place(x=0,y=0)
+        self.sidebarleftframe.place(x=15,y=15)
+
         self.brewos_label.place(x=20,y=20)
-        self.home_tab.place(x=20,y=70)
-        self.recepies_tab.place(x=20,y=120)
-        self.brewlog_tab.place(x=20,y=170)
-        self.settings_tab.place(x=20,y=220)
-        self.sep_label.place(x=32,y=505)
-        self.quote_label_p1.place(x=30,y=530)
-        self.quote_label_p2.place(x=30,y=550)
+        self.home_tab.place(x=15,y=70)
+        self.recepies_tab.place(x=15,y=120)
+        self.brewlog_tab.place(x=15,y=170)
+        self.settings_tab.place(x=15,y=220)
+        
+        self.sep_label.place(x=32,y=470)
+        self.quote_label_p1.place(x=30,y=500)
+        self.quote_label_p2.place(x=30,y=520)
         
 
 
