@@ -176,13 +176,46 @@ class MainWindow():
 
 
 
+        self.card1 = ctk.CTkFrame(self.mainframe,
+                                  width=230,
+                                  height=220,
+                                  corner_radius=20,
+                                  bg_color=self.bg,
+                                  fg_color=self.tmn.get("surface"))
+
+
+        
+        self.card2 = ctk.CTkFrame(self.mainframe,
+                                  width=230,
+                                  height=220,
+                                  corner_radius=20,
+                                  bg_color=self.bg,
+                                  fg_color=self.tmn.get("surface"))
+
+        
+        self.card3 = ctk.CTkFrame(self.mainframe,
+                                  width=230,
+                                  height=220,
+                                  corner_radius=20,
+                                  bg_color=self.bg,
+                                  fg_color=self.tmn.get("surface"))
+
+
+
+
 
 
 
 
         self.mainframe.place(x=220,y=0)
         self.banner_label.place(x=13,y=30)
-        self.new_brew_button.place(anchor='center',x=390,y=280)
+        self.new_brew_button.place(anchor='center',x=390,y=285)
+        self.card1.place(x=23,y=340)
+        self.card2.place(x=275,y=340)
+        self.card3.place(x=525,y=340)
+
+
+
 
 
 
