@@ -13,10 +13,11 @@ class MainWindow():
         self.bg = self.tmn.get("bg")
         self.root = ctk.CTk()
         self.root.geometry(center_window(self.root,1000,590))
-        self.root.resizable(1,1)
+        self.root.resizable(0,0)
         self.root.title("BrewOS")
         self.root.config(bg=self.bg)
         self.widget_sidebar_left()
+        self.widget_mainframe()
 
 
 
@@ -26,7 +27,7 @@ class MainWindow():
 
         self.sidebarleftframe = ctk.CTkFrame(self.root,
                                              width=220,
-                                             height=790,
+                                             height=590,
                                              corner_radius=0,
                                              bg_color=self.bg,
                                              fg_color=self.tmn.get("surface"))
@@ -132,14 +133,57 @@ class MainWindow():
         self.sep_label.place(x=32,y=505)
         self.quote_label_p1.place(x=30,y=530)
         self.quote_label_p2.place(x=30,y=550)
-        self.widget_mainframe()
+        
 
 
 
 
 
     def widget_mainframe(self):
-        pass
+
+        self.mainframe = ctk.CTkFrame(self.root,
+                                    width=780,
+                                    height=590,
+                                    corner_radius=0,
+                                    bg_color=self.bg,
+                                    fg_color=self.tmn.get("bg"))
+        
+
+
+        image = Image.open('assets\\banner\\banner_1.png')
+        banner = ctk.CTkImage(light_image=image, dark_image=image, size=(750, 200))
+        self.banner_label = ctk.CTkLabel(self.mainframe,
+                                         image=banner,
+                                         text='',
+                                         bg_color=self.bg,
+                                         fg_color=self.bg)
+
+
+        self.new_brew_button = ctk.CTkButton(self.mainframe,
+                                             text="New Brew",
+                                             font=('Inter',23,'bold'),
+                                             width=190,
+                                             height=60,
+                                             anchor='w',
+                                             corner_radius=25,
+                                             border_color=self.tmn.get("border"),
+                                             border_width=4,
+                                             text_color=self.tmn.get("text"),
+                                             fg_color=self.tmn.get("surface"),
+                                             hover_color=self.tmn.get("accent_hover"),
+                                             image=self.imn.get_icon("plus",self.tmn.get("accent")),
+                                             compound='left')
+
+
+
+
+
+
+
+        self.mainframe.place(x=220,y=0)
+        self.banner_label.place(x=13,y=30)
+        self.new_brew_button.place(anchor='center',x=390,y=280)
+
 
 
 
