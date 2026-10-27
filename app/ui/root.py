@@ -3,8 +3,6 @@ from PIL import Image
 from app.ui.theme.manager import ThemeManager,IconManager
 from app.ui.ui_utility.functions import center_window
 
-from app.ui.pages.home_page import HomePage
-
 
 
 class MainWindow():
