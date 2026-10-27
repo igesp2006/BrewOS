@@ -3,6 +3,10 @@ from PIL import Image
 from app.ui.theme.manager import ThemeManager,IconManager
 from app.ui.ui_utility.functions import center_window
 
+from app.ui.pages.home_page import HomePage
+
+
+
 class MainWindow():
 
     def __init__(self):
@@ -16,10 +20,9 @@ class MainWindow():
         self.root.resizable(0,0)
         self.root.title("BrewOS")
         self.root.config(bg=self.bg)
+       
 
-
-
-
+   
 
     def update(self):
         self.root.mainloop()
