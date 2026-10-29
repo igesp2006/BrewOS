@@ -12,11 +12,23 @@ class RecepiePage(ctk.CTkFrame):
 
         super().__init__(
             parent,
-            width=1000,
-            height=590,
+            width=780,
+            height=570,
             fg_color=self.tmn.get("bg")
         )
 
-    
         self.place(x=0,y=0)
-    
+
+        self.create_widgets()
+
+
+    def create_widgets(self):
+
+
+        label = ctk.CTkLabel(self,
+                             text='coming soon',
+                             text_color=self.tmn.get("text"))
+
+        label.place(x=390,y=285,anchor='center')
+
+
