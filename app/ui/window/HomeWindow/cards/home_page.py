@@ -12,8 +12,8 @@ class HomePage(ctk.CTkFrame):
 
         super().__init__(
             parent,
-            width=1000,
-            height=590,
+            width=780,
+            height=570,
             fg_color=self.tmn.get("bg")
         )
 
