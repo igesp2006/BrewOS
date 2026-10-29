@@ -5,7 +5,7 @@ from app.ui.theme.manager import ThemeManager,IconManager
 
 class HomePage(ctk.CTkFrame):
 
-    def __init__(self,parent:ctk.CTk):
+    def __init__(self,parent:ctk.CTkFrame):
 
         self.tmn = ThemeManager()
         self.imn = IconManager()   
@@ -17,7 +17,6 @@ class HomePage(ctk.CTkFrame):
             fg_color=self.tmn.get("bg")
         )
 
-        self.mainframe = parent
         self.place(x=0,y=0)
         self.mainframe_widgets()
 
@@ -31,14 +30,14 @@ class HomePage(ctk.CTkFrame):
 
         image = Image.open('assets\\banner\\banner_1.png')
         banner = ctk.CTkImage(light_image=image, dark_image=image, size=(750, 200))
-        self.banner_label = ctk.CTkLabel(self.mainframe,
+        self.banner_label = ctk.CTkLabel(self,
                                          image=banner,
                                          text='',
                                          bg_color=self.tmn.get("bg"),
                                          fg_color=self.tmn.get("bg"))
 
 
-        self.new_brew_button = ctk.CTkButton(self.mainframe,
+        self.new_brew_button = ctk.CTkButton(self,
                                              text="New Brew",
                                              font=('Inter',23,'bold'),
                                              width=190,
@@ -56,7 +55,7 @@ class HomePage(ctk.CTkFrame):
 
 
 
-        self.card1 = ctk.CTkFrame(self.mainframe,
+        self.card1 = ctk.CTkFrame(self,
                                   width=230,
                                   height=220,
                                   corner_radius=20,
@@ -65,7 +64,7 @@ class HomePage(ctk.CTkFrame):
 
 
         
-        self.card2 = ctk.CTkFrame(self.mainframe,
+        self.card2 = ctk.CTkFrame(self,
                                   width=230,
                                   height=220,
                                   corner_radius=20,
@@ -73,7 +72,7 @@ class HomePage(ctk.CTkFrame):
                                   fg_color=self.tmn.get("surface"))
 
         
-        self.card3 = ctk.CTkFrame(self.mainframe,
+        self.card3 = ctk.CTkFrame(self,
                                   width=230,
                                   height=220,
                                   corner_radius=20,
