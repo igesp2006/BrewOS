@@ -5,10 +5,14 @@ from app.ui.theme.manager import ThemeManager,IconManager
 
 class RecepiePage(ctk.CTkFrame):
 
-    def __init__(self,parent:ctk.CTk):
+    def __init__(self,
+                 parent:ctk.CTkFrame,
+                 theme_manager:ThemeManager,
+                 icon_manager:IconManager):
 
-        self.tmn = ThemeManager()
-        self.imn = IconManager()   
+
+        self.tmn = theme_manager
+        self.imn = icon_manager  
 
         super().__init__(
             parent,
