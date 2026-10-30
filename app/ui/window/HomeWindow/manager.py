@@ -2,6 +2,8 @@ import customtkinter as ctk
 from PIL import Image
 from app.ui.theme.manager import ThemeManager,IconManager
 from app.ui.window.HomeWindow.cards.home_page import HomePage
+from app.ui.window.HomeWindow.cards.recepies_page import RecepiePage
+from app.ui.window.HomeWindow.cards.brewlog_page import BrewLogPage
 
 
 class HomeWindowManager(ctk.CTkFrame):
@@ -24,7 +26,9 @@ class HomeWindowManager(ctk.CTkFrame):
         self.widget_sidebar_left()
 
 
-        home_page = HomePage(self.mainframe)
+        home_page = HomePage(self.mainframe,self.tmn,self.imn)
+        # recepie_page = RecepiePage(self.mainframe)
+        # brewlog_page = BrewLogPage(self.mainframe)
 
 
 
