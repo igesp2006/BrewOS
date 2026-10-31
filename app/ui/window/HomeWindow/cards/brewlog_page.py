@@ -30,10 +30,13 @@ class BrewLogPage(ctk.CTkFrame):
     def create_widgets(self):
 
 
-        label = ctk.CTkLabel(self,
+        self.label = ctk.CTkLabel(self,
                              text='coming soon',
                              text_color=self.tmn.get("text"))
 
-        label.place(x=390,y=285,anchor='center')
+        self.label.place(anchor='center')
 
 
+    def animate(self):
+        
+        self.label.place(x=390,y=285)
