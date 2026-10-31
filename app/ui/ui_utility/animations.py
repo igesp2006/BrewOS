@@ -21,3 +21,30 @@ def hex_to_rgb(hex_color: str) -> tuple:
     return (red, green, blue)
 
 
+
+
+def fade_in(window: ctk.CTk, widget: ctk.CTkBaseClass, step, total_steps, x_coord, y_coord, bg_hex, target_hex, callback=lambda: None):
+
+    '''creates a simple fade in animation for a button by altering the background color'''
+
+    if step > total_steps:
+        callback()                      # callback to continue flow if required
+        return
+
+    bg_rgb = hex_to_rgb(bg_hex)
+    target_rgb = hex_to_rgb(target_hex)
+
+    progress = step / total_steps
+    eased = 1 - (1 - progress) ** 3
+
+    r = int(bg_rgb[0] + (target_rgb[0] - bg_rgb[0]) * eased)
+    g = int(bg_rgb[1] + (target_rgb[1] - bg_rgb[1]) * eased)
+    b = int(bg_rgb[2] + (target_rgb[2] - bg_rgb[2]) * eased)
+    fade_color = f'#{r:02x}{g:02x}{b:02x}'
+
+    widget.place(x=x_coord, y=y_coord)
+    widget.configure(fg_color=fade_color)
+
+    window.after(16, lambda: fade_in(window, widget, step + 1, total_steps, x_coord, y_coord, bg_hex, target_hex, callback))
+
+
