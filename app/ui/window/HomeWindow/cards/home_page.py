@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from PIL import Image
 from app.ui.theme.manager import ThemeManager,IconManager
+from app.ui.ui_utility.animations import slide, fade_in
 
 
 class HomePage(ctk.CTkFrame):
@@ -27,9 +28,6 @@ class HomePage(ctk.CTkFrame):
 
 
         self.mainframe_widgets()
-
-
-
 
 
 
@@ -87,19 +85,37 @@ class HomePage(ctk.CTkFrame):
                                   bg_color=self.tmn.get("bg"),
                                   fg_color=self.tmn.get("surface"))
 
+        
+        self.banner_label.place(x=13,y=30)
+        self.new_brew_button.place(anchor='center')
 
 
 
+    def animate(self):
 
+        fade_in(self,
+                self.new_brew_button,
+                0,24,
+                390,285,
+                self.tmn.get("bg"),self.tmn.get("surface"))
 
+        self.after(50,lambda:fade_in(self,
+                                     self.card1,
+                                     0,24,
+                                     23,340,
+                                     self.tmn.get("bg"),self.tmn.get("surface")))
+
+        self.after(70,lambda:fade_in(self,
+                                     self.card2,
+                                     0,24,
+                                     275,340,
+                                     self.tmn.get("bg"),self.tmn.get("surface")))
+
+        self.after(90,lambda:fade_in(self,
+                                     self.card3,
+                                     0,24,
+                                     525,340,
+                                     self.tmn.get("bg"),self.tmn.get("surface")))
 
 
         
-        self.banner_label.place(x=13,y=30)
-        self.new_brew_button.place(anchor='center',x=390,y=285)
-        self.card1.place(x=23,y=340)
-        self.card2.place(x=275,y=340)
-        self.card3.place(x=525,y=340)
-
-
-
