@@ -22,6 +22,7 @@ class RecepiePage(ctk.CTkFrame):
         )
 
         self.place(x=0,y=0)
+        self.place_forget()
 
         self.create_widgets()
 
