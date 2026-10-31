@@ -4,6 +4,7 @@ from app.ui.theme.manager import ThemeManager,IconManager
 from app.ui.window.HomeWindow.cards.home_page import HomePage
 from app.ui.window.HomeWindow.cards.recepies_page import RecepiePage
 from app.ui.window.HomeWindow.cards.brewlog_page import BrewLogPage
+from app.ui.window.HomeWindow.cards.settings_page import SettingsPage
 
 
 class HomeWindowManager(ctk.CTkFrame):
@@ -23,12 +24,29 @@ class HomeWindowManager(ctk.CTkFrame):
 
         self.create_frames()
         self.place_widget_frame()
+
+
+        self.home_page = HomePage(self.mainframe,self.tmn,self.imn)
+        self.recepie_page = RecepiePage(self.mainframe,self.tmn,self.imn)
+        self.brewlog_page = BrewLogPage(self.mainframe,self.tmn,self.imn)
+        self.settings_page = SettingsPage(self.mainframe,self.tmn,self.imn)
+
+        self.page_list = [self.home_page,self.recepie_page,self.brewlog_page,self.settings_page]
+
+
         self.widget_sidebar_left()
+        self.home_page.place(x=0,y=0)
 
 
-        home_page = HomePage(self.mainframe,self.tmn,self.imn)
-        # recepie_page = RecepiePage(self.mainframe)
-        # brewlog_page = BrewLogPage(self.mainframe)
+    def switch_page(self,page:ctk.CTkFrame):
+
+        print('here')
+
+        i:ctk.CTkFrame
+        for i in self.page_list:
+            i.place_forget()
+
+        page.place(x=0,y=0)
 
 
 
@@ -85,7 +103,8 @@ class HomeWindowManager(ctk.CTkFrame):
                                           fg_color=self.tmn.get("surface"),
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("house",self.tmn.get("accent")),
-                                          compound='left')
+                                          compound='left',
+                                          command=lambda:self.switch_page(self.home_page))
     
     
             self.recepies_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -99,7 +118,8 @@ class HomeWindowManager(ctk.CTkFrame):
                                           fg_color=self.tmn.get("surface"),
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("book-open",self.tmn.get("accent")),
-                                          compound='left')
+                                          compound='left',
+                                          command=lambda:self.switch_page(self.recepie_page))
     
     
             self.brewlog_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -113,7 +133,8 @@ class HomeWindowManager(ctk.CTkFrame):
                                           fg_color=self.tmn.get("surface"),
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("rotate-ccw-clock",self.tmn.get("accent")),
-                                          compound='left')
+                                          compound='left',
+                                          command=lambda:self.switch_page(self.brewlog_page))
     
     
             self.settings_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -127,7 +148,8 @@ class HomeWindowManager(ctk.CTkFrame):
                                           fg_color=self.tmn.get("surface"),
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("settings",self.tmn.get("accent")),
-                                          compound='left')
+                                          compound='left',
+                                          command=lambda:self.switch_page(self.settings_page))
     
     
     
@@ -163,4 +185,6 @@ class HomeWindowManager(ctk.CTkFrame):
             self.sep_label.place(x=32,y=470)
             self.quote_label_p1.place(x=30,y=500)
             self.quote_label_p2.place(x=30,y=520)
-            
+
+
+
