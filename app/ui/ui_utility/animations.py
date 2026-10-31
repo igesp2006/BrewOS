@@ -51,7 +51,7 @@ def fade_in(window: ctk.CTk, widget: ctk.CTkBaseClass, step, total_steps, x_coor
 #################################
 
 
-def slide(window: ctk.CTk, widget: ctk.CTkBaseClass, step, total_steps, start_x, target_x, start_y, target_y, bg_hex, target_hex, callback=lambda: None):
+def slide(window: ctk.CTk, widget: ctk.CTkBaseClass, step, total_steps, start_x, target_x, start_y, target_y, bg_hex=None, target_hex=None, callback=lambda: None):
 
     '''creates a simple slide animation for the label with progressive gradient color smoothing'''
 
@@ -59,21 +59,29 @@ def slide(window: ctk.CTk, widget: ctk.CTkBaseClass, step, total_steps, start_x,
         callback()                      # callback to continue flow if required
         return
 
-    bg_rgb = hex_to_rgb(bg_hex)
-    target_rgb = hex_to_rgb(target_hex)
-
     progress = step / total_steps
     eased = 1 - (1 - progress) ** 3
+    
+
+    if bg_hex and target_hex is not None:
+
+        bg_rgb = hex_to_rgb(bg_hex)
+        target_rgb = hex_to_rgb(target_hex)
+
+
+        # fade
+        r = int(bg_rgb[0] + (target_rgb[0] - bg_rgb[0]) * progress)
+        g = int(bg_rgb[1] + (target_rgb[1] - bg_rgb[1]) * progress)
+        b = int(bg_rgb[2] + (target_rgb[2] - bg_rgb[2]) * progress)
+        
+        widget.configure(text_color=f'#{r:02x}{g:02x}{b:02x}')
+
+
 
     # slide
     current_y = start_y + (target_y - start_y) * eased
     current_x = start_x + (target_x - start_x) * eased
     widget.place(x=current_x, y=current_y)
 
-    # fade
-    r = int(bg_rgb[0] + (target_rgb[0] - bg_rgb[0]) * progress)
-    g = int(bg_rgb[1] + (target_rgb[1] - bg_rgb[1]) * progress)
-    b = int(bg_rgb[2] + (target_rgb[2] - bg_rgb[2]) * progress)
-    widget.configure(text_color=f'#{r:02x}{g:02x}{b:02x}')
-
+  
     window.after(16, lambda: slide(window, widget, step + 1, total_steps, start_x, target_x, start_y, target_y, bg_hex, target_hex, callback))
