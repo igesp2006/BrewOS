@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from PIL import Image
+from app.ui.ui_utility.animations import slide, fade_in
 from app.ui.theme.manager import ThemeManager,IconManager
 from app.ui.window.HomeWindow.cards.home_page import HomePage
 from app.ui.window.HomeWindow.cards.recepies_page import RecepiePage
@@ -25,6 +26,7 @@ class HomeWindowManager(ctk.CTkFrame):
         self.create_frames()
         self.place_widget_frame()
         self.widget_sidebar_left()
+        self.animate()
 
 
         self.home_page = HomePage(self.mainframe,self.tmn,self.imn)
@@ -42,7 +44,7 @@ class HomeWindowManager(ctk.CTkFrame):
 
         self.home_page.place(x=0,y=0)
         self.home_page.animate()
-        
+
 
 
     def switch_page(self,name:str,page:ctk.CTkFrame):
@@ -58,7 +60,7 @@ class HomeWindowManager(ctk.CTkFrame):
 
         selected_tab: ctk.CTkButton = self.page_hash[name][1]
         selected_tab.configure(fg_color=self.tmn.get("highlight"),text_color=self.tmn.get("accent"))
-        
+
         page.place(x=0,y=0)
         page.animate()
 
@@ -113,8 +115,8 @@ class HomeWindowManager(ctk.CTkFrame):
                                           height=40,
                                           anchor='w',
                                           corner_radius=15,
-                                          text_color=self.tmn.get("accent"),
-                                          fg_color=self.tmn.get("highlight"),
+                                          text_color=self.tmn.get("text"),
+                                          fg_color=self.tmn.get("surface"),
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("house",self.tmn.get("accent")),
                                           compound='left',
@@ -185,20 +187,40 @@ class HomeWindowManager(ctk.CTkFrame):
                                             text_color=self.tmn.get("text_muted"))
     
     
-    
-    
-    
-            
-            self.brewos_label_button.place(x=35,y=35)
-    
-            self.home_tab.place(x=15,y=70)
-            self.recepies_tab.place(x=15,y=120)
-            self.brewlog_tab.place(x=15,y=170)
-            self.settings_tab.place(x=15,y=220)
-            
-            self.sep_label.place(x=32,y=470)
-            self.quote_label_p1.place(x=30,y=500)
-            self.quote_label_p2.place(x=30,y=520)
+    def animate(self):
+         
+        self.brewos_label_button.place(x=35,y=35)
 
+        self.sep_label.place(x=32,y=470)
+        self.quote_label_p1.place(x=30,y=500)
+        self.quote_label_p2.place(x=30,y=520)
 
+         
+        slide(self,
+              self.home_tab,
+              0,24,
+              -15,15,
+              70,70,)
 
+        self.after(30,lambda:slide(self,
+                                   self.recepies_tab,
+                                   0,24,
+                                   -15,15,
+                                   120,120,))
+
+        self.after(30,lambda:slide(self,
+                                   self.brewlog_tab,
+                                   0,24,
+                                   -15,15,
+                                   170,170,))
+
+        self.after(30,lambda:slide(self,
+                                   self.settings_tab,
+                                   0,24,
+                                   -15,15,
+                                   220,220,
+                                   callback=lambda:self.after(10,lambda:fade_in(self,
+                                                                         self.home_tab,
+                                                                         0,24,
+                                                                         15,70,
+                                                                         self.tmn.get("surface"),self.tmn.get("highlight")))))
