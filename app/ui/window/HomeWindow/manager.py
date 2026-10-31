@@ -24,6 +24,7 @@ class HomeWindowManager(ctk.CTkFrame):
 
         self.create_frames()
         self.place_widget_frame()
+        self.widget_sidebar_left()
 
 
         self.home_page = HomePage(self.mainframe,self.tmn,self.imn)
@@ -31,22 +32,35 @@ class HomeWindowManager(ctk.CTkFrame):
         self.brewlog_page = BrewLogPage(self.mainframe,self.tmn,self.imn)
         self.settings_page = SettingsPage(self.mainframe,self.tmn,self.imn)
 
-        self.page_list = [self.home_page,self.recepie_page,self.brewlog_page,self.settings_page]
+        self.page_hash = {
+             "home":[self.home_page,self.home_tab],
+            "recepies":[self.recepie_page,self.recepies_tab],
+            "brewlog":[self.brewlog_page,self.brewlog_tab],
+            "settings":[self.settings_page,self.settings_tab]
+        }
 
 
-        self.widget_sidebar_left()
         self.home_page.place(x=0,y=0)
+        self.home_page.animate()
+        
 
 
-    def switch_page(self,page:ctk.CTkFrame):
+    def switch_page(self,name:str,page:ctk.CTkFrame):
 
-        print('here')
+        for i in self.page_hash:
+            
+            frame: ctk.CTkFrame = self.page_hash[i][0]
+            tab: ctk.CTkButton = self.page_hash[i][1]
 
-        i:ctk.CTkFrame
-        for i in self.page_list:
-            i.place_forget()
+            frame.place_forget()
+            tab.configure(fg_color=self.tmn.get("surface"),text_color=self.tmn.get("text"))
 
+
+        selected_tab: ctk.CTkButton = self.page_hash[name][1]
+        selected_tab.configure(fg_color=self.tmn.get("highlight"),text_color=self.tmn.get("accent"))
+        
         page.place(x=0,y=0)
+        page.animate()
 
 
 
@@ -99,12 +113,12 @@ class HomeWindowManager(ctk.CTkFrame):
                                           height=40,
                                           anchor='w',
                                           corner_radius=15,
-                                          text_color=self.tmn.get("text"),
-                                          fg_color=self.tmn.get("surface"),
+                                          text_color=self.tmn.get("accent"),
+                                          fg_color=self.tmn.get("highlight"),
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("house",self.tmn.get("accent")),
                                           compound='left',
-                                          command=lambda:self.switch_page(self.home_page))
+                                          command=lambda:self.switch_page("home",self.home_page))
     
     
             self.recepies_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -119,7 +133,7 @@ class HomeWindowManager(ctk.CTkFrame):
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("book-open",self.tmn.get("accent")),
                                           compound='left',
-                                          command=lambda:self.switch_page(self.recepie_page))
+                                          command=lambda:self.switch_page("recepies",self.recepie_page))
     
     
             self.brewlog_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -134,7 +148,7 @@ class HomeWindowManager(ctk.CTkFrame):
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("rotate-ccw-clock",self.tmn.get("accent")),
                                           compound='left',
-                                          command=lambda:self.switch_page(self.brewlog_page))
+                                          command=lambda:self.switch_page("brewlog",self.brewlog_page))
     
     
             self.settings_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -149,7 +163,7 @@ class HomeWindowManager(ctk.CTkFrame):
                                           hover_color=self.tmn.get("accent_hover"),
                                           image=self.imn.get_icon("settings",self.tmn.get("accent")),
                                           compound='left',
-                                          command=lambda:self.switch_page(self.settings_page))
+                                          command=lambda:self.switch_page("settings",self.settings_page))
     
     
     
