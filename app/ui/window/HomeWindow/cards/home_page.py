@@ -87,11 +87,12 @@ class HomePage(ctk.CTkFrame):
 
         
         self.banner_label.place(x=13,y=30)
-        self.new_brew_button.place(anchor='center')
 
 
 
     def animate(self):
+        
+        self.new_brew_button.place(anchor='center')
 
         fade_in(self,
                 self.new_brew_button,
