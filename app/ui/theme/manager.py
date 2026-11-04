@@ -34,6 +34,14 @@ class ThemeManager:
         return self.colours[colour]
 
 
+    def font(self,font='Inter',size=17,formatting=None):
+
+        if formatting is not None:
+            return (font,size,formatting)
+        else:
+            return (font,size)
+
+
 class IconManager:
     
     def __init__(self, icon_dir="assets/icon"):
