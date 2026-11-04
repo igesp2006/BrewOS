@@ -47,27 +47,58 @@ class SettingsPage(ctk.CTkFrame):
                                          font=('Inter',33,'bold'))
 
 
-        self.apperance_card = ctk.CTkFrame(self,
+
+        # card decorator = aprc
+        self.apperance_card = aprc = ctk.CTkFrame(self,
                                   width=330,
                                   height=170,
                                   corner_radius=20,
                                   bg_color=self.tmn.get("bg"),
                                   fg_color=self.tmn.get("surface"))
 
-        
-        self.info_card = ctk.CTkFrame(self,
+        # card decorator = ifc
+        self.info_card = ifc = ctk.CTkFrame(self,
                                   width=330,
                                   height=220,
                                   corner_radius=20,
                                   bg_color=self.tmn.get("bg"),
                                   fg_color=self.tmn.get("surface"))
-        
-        self.defaults_card = ctk.CTkFrame(self,
+
+        # card decorator = dfc
+        self.defaults_card = dfc = ctk.CTkFrame(self,
                                   width=370,
                                   height=370,
                                   corner_radius=20,
                                   bg_color=self.tmn.get("bg"),
                                   fg_color=self.tmn.get("surface"))
+
+
+        # aprc
+        self.aprc_title_label = ctk.CTkLabel(aprc,
+                                             text=' Appearance',
+                                             text_color=self.tmn.get("text_secondary"),
+                                             font=self.tmn.font(size=20,formatting='bold'),
+                                             image=self.imn.get_icon("palette",self.tmn.get("accent"),30),
+                                             compound='left')
+
+        # ifc
+        self.ifc_title_label = ctk.CTkLabel(ifc,
+                                             text=' BrewOS: About',
+                                             text_color=self.tmn.get("text_secondary"),
+                                             font=self.tmn.font(size=20,formatting='bold'),
+                                             image=self.imn.get_icon("coffee",self.tmn.get("accent"),30),
+                                             compound='left')
+
+        # dfc
+        self.dfc_title_label = ctk.CTkLabel(dfc,
+                                             text=' Defaults',
+                                             text_color=self.tmn.get("text_secondary"),
+                                             font=self.tmn.font(size=20,formatting='bold'),
+                                             image=self.imn.get_icon("sliders",self.tmn.get("accent"),30),
+                                             compound='left')
+
+
+
 
 
 
@@ -84,3 +115,8 @@ class SettingsPage(ctk.CTkFrame):
         self.apperance_card.place(x=25,y=130)
         self.info_card.place(x=25,y=330)
         self.defaults_card.place(x=375,y=130)
+
+
+        self.aprc_title_label.place(x=15,y=10)
+        self.ifc_title_label.place(x=15,y=10)
+        self.dfc_title_label.place(x=15,y=10)
