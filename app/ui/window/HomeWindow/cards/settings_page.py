@@ -47,6 +47,28 @@ class SettingsPage(ctk.CTkFrame):
                                          font=('Inter',33,'bold'))
 
 
+        self.apperance_card = ctk.CTkFrame(self,
+                                  width=330,
+                                  height=170,
+                                  corner_radius=20,
+                                  bg_color=self.tmn.get("bg"),
+                                  fg_color=self.tmn.get("surface"))
+
+        
+        self.info_card = ctk.CTkFrame(self,
+                                  width=330,
+                                  height=220,
+                                  corner_radius=20,
+                                  bg_color=self.tmn.get("bg"),
+                                  fg_color=self.tmn.get("surface"))
+        
+        self.defaults_card = ctk.CTkFrame(self,
+                                  width=370,
+                                  height=370,
+                                  corner_radius=20,
+                                  bg_color=self.tmn.get("bg"),
+                                  fg_color=self.tmn.get("surface"))
+
 
 
 
@@ -58,3 +80,7 @@ class SettingsPage(ctk.CTkFrame):
         self.icon_label.place(x=25,y=25)
         self.header_quote_label.place(x=115,y=66)
         self.header_label.place(x=115,y=30)
+
+        self.apperance_card.place(x=25,y=130)
+        self.info_card.place(x=25,y=330)
+        self.defaults_card.place(x=375,y=130)
