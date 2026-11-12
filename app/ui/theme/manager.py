@@ -12,6 +12,7 @@ class ThemeManager:
     def __init__(self, palette_name=DEFAULT_PALETTE):
 
         self.set_palette(palette_name)
+        self.palettes = PALETTES
 
 
     def set_palette(self, palette_name):
