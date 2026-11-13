@@ -9,11 +9,14 @@ class HomePage(ctk.CTkFrame):
     def __init__(self,
                  parent:ctk.CTkFrame,
                  theme_manager:ThemeManager,
-                 icon_manager:IconManager):
+                 icon_manager:IconManager,
+                 load_manager):
 
         
         self.tmn = theme_manager
         self.imn = icon_manager   
+
+        self.load_manager = load_manager
 
 
         super().__init__(
@@ -57,7 +60,7 @@ class HomePage(ctk.CTkFrame):
                                              hover_color=self.tmn.get("accent_hover"),
                                              image=self.imn.get_icon("plus",self.tmn.get("accent")),
                                              compound='left',
-                                             command=None)
+                                             command=self.load_manager)
 
 
 

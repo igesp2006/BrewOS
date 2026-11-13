@@ -10,7 +10,7 @@ from app.ui.window.HomeWindow.cards.settings_page import SettingsPage
 
 class HomeWindowManager(ctk.CTkFrame):
 
-    def __init__(self,parent:ctk.CTk):
+    def __init__(self,parent:ctk.CTk,load_manager):
 
         self.tmn = ThemeManager()
         self.imn = IconManager()
@@ -29,7 +29,7 @@ class HomeWindowManager(ctk.CTkFrame):
         self.animate()
 
 
-        self.home_page = HomePage(self.mainframe,self.tmn,self.imn)
+        self.home_page = HomePage(self.mainframe,self.tmn,self.imn,load_manager)
         self.recepie_page = RecepiePage(self.mainframe,self.tmn,self.imn)
         self.brewlog_page = BrewLogPage(self.mainframe,self.tmn,self.imn)
         self.settings_page = SettingsPage(self.mainframe,self.tmn,self.imn)

@@ -1,7 +1,8 @@
 import customtkinter as ctk
-from PIL import Image
 from app.ui.theme.manager import ThemeManager,IconManager
 from app.ui.ui_utility.functions import center_window
+from app.ui.window.HomeWindow.hw_manager import HomeWindowManager
+from app.ui.window.WorkFlowWindow.wfw_manager import WorkflowWindowManager
 
 
 
@@ -18,9 +19,26 @@ class MainWindow():
         self.root.resizable(0,0)
         self.root.title("BrewOS")
         self.root.config(bg=self.bg)
+
+        self.hwm = HomeWindowManager(self.root,self.load_manager)
+        # self.wfwm = WorkflowWindowManager(self.root,self.load_manager)
        
 
-   
+
+    
+
+
+
+    def load_manager(self):
+        print('here')
+
+
+
+
+
+
+
+
 
     def update(self):
         self.root.mainloop()
