@@ -83,8 +83,8 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                                 command=None)
 
 
-        self.home_tab = ctk.CTkButton(self.sidebarleftframe,
-                                        text=' ',
+        self.basics_tab = ctk.CTkButton(self.sidebarleftframe,
+                                        text=' Basics',
                                         font=('Inter',17,'bold'),
                                         width=150,
                                         height=40,
@@ -93,13 +93,13 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                         text_color=self.tmn.get("text"),
                                         fg_color=self.tmn.get("surface"),
                                         hover_color=self.tmn.get("accent_hover"),
-                                        image=self.imn.get_icon("house",self.tmn.get("accent")),
+                                        image=self.imn.get_icon("coffee",self.tmn.get("accent")),
                                         compound='left',
-                                        command=lambda:self.switch_page("home",self.home_page))
+                                        command=None)
 
 
-        self.recepies_tab = ctk.CTkButton(self.sidebarleftframe,
-                                        text=' ',
+        self.brew_tab = ctk.CTkButton(self.sidebarleftframe,
+                                        text=' Brew',
                                         font=('Inter',17,'bold'),
                                         width=150,
                                         height=40,
@@ -108,13 +108,13 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                         text_color=self.tmn.get("text"),
                                         fg_color=self.tmn.get("surface"),
                                         hover_color=self.tmn.get("accent_hover"),
-                                        image=self.imn.get_icon("book-open",self.tmn.get("accent")),
+                                        image=self.imn.get_icon("droplets",self.tmn.get("accent")),
                                         compound='left',
-                                        command=lambda:self.switch_page("recepies",self.recepie_page))
+                                        command=None)
 
 
         self.brewlog_tab = ctk.CTkButton(self.sidebarleftframe,
-                                        text=' ',
+                                        text=' Evaluate',
                                         font=('Inter',17,'bold'),
                                         width=150,
                                         height=40,
@@ -123,24 +123,11 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                         text_color=self.tmn.get("text"),
                                         fg_color=self.tmn.get("surface"),
                                         hover_color=self.tmn.get("accent_hover"),
-                                        image=self.imn.get_icon("rotate-ccw-clock",self.tmn.get("accent")),
+                                        image=self.imn.get_icon("file-check",self.tmn.get("accent")),
                                         compound='left',
-                                        command=lambda:self.switch_page("brewlog",self.brewlog_page))
+                                        command=None)
 
 
-        self.settings_tab = ctk.CTkButton(self.sidebarleftframe,
-                                        text=' ',
-                                        font=('Inter',17,'bold'),
-                                        width=150,
-                                        height=40,
-                                        anchor='w',
-                                        corner_radius=15,
-                                        text_color=self.tmn.get("text"),
-                                        fg_color=self.tmn.get("surface"),
-                                        hover_color=self.tmn.get("accent_hover"),
-                                        image=self.imn.get_icon("settings",self.tmn.get("accent")),
-                                        compound='left',
-                                        command=lambda:self.switch_page("settings",self.settings_page))
 
 
 
@@ -173,13 +160,13 @@ class WorkflowWindowManager(ctk.CTkFrame):
 
             
         slide(self,
-                self.home_tab,
+                self.basics_tab,
                 0,24,
                 -15,15,
                 70,70,)
 
         self.after(30,lambda:slide(self,
-                                    self.recepies_tab,
+                                    self.brew_tab,
                                     0,24,
                                     -15,15,
                                     120,120,))
@@ -188,15 +175,11 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                     self.brewlog_tab,
                                     0,24,
                                     -15,15,
-                                    170,170,))
-
-        self.after(30,lambda:slide(self,
-                                    self.settings_tab,
-                                    0,24,
-                                    -15,15,
-                                    220,220,
+                                    170,170,
                                     callback=lambda:self.after(10,lambda:fade_in(self,
-                                                                            self.home_tab,
+                                                                            self.basics_tab,
                                                                             0,24,
                                                                             15,70,
                                                                             self.tmn.get("surface"),self.tmn.get("highlight")))))
+
+        
