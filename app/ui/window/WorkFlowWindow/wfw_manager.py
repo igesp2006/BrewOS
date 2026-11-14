@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from app.ui.ui_utility.animations import slide, fade_in
 from app.ui.theme.manager import ThemeManager,IconManager
-
+from app.ui.window.WorkFlowWindow.wfm_cards.preparation.prep_frame import PrepFrame
 
 
 class WorkflowWindowManager(ctk.CTkFrame):
@@ -23,6 +23,12 @@ class WorkflowWindowManager(ctk.CTkFrame):
         self.place_widget_frame()
         self.widget_sidebar_left()
         self.animate()
+
+
+        self.prep_f = PrepFrame(self.mainframe,self.tmn,self.imn)
+      
+
+
 
         self.page_hash = {}
 
@@ -113,7 +119,7 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                         command=None)
 
 
-        self.brewlog_tab = ctk.CTkButton(self.sidebarleftframe,
+        self.eval_tab = ctk.CTkButton(self.sidebarleftframe,
                                         text=' Evaluate',
                                         font=('Inter',17,'bold'),
                                         width=150,
@@ -172,7 +178,7 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                     120,120,))
 
         self.after(30,lambda:slide(self,
-                                    self.brewlog_tab,
+                                    self.eval_tab,
                                     0,24,
                                     -15,15,
                                     170,170,
