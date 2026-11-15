@@ -20,24 +20,28 @@ class MainWindow():
         self.root.title("BrewOS")
         self.root.config(bg=self.bg)
 
+        self.wfwm = WorkflowWindowManager(self.root,self.load_manager)
         self.hwm = HomeWindowManager(self.root,self.load_manager)
-        # self.wfwm = WorkflowWindowManager(self.root,self.load_manager)
        
-
+        self.managers = {'wfwm':self.wfwm,
+                         'hwm':self.hwm}
 
     
 
 
 
-    def load_manager(self):
-        print('here')
+    def load_manager(self,load_manager:ctk.CTkFrame):
+
+        i:ctk.CTkFrame
+        for i in self.managers.values():
+            i.place_forget()
 
 
-
-
-
-
-
+        self.managers[load_manager].place(x=0,y=0)
+        
+            
+      
+    
 
 
     def update(self):
