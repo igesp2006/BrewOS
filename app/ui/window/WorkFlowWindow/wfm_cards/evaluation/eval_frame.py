@@ -19,6 +19,8 @@ class EvalFrame(ctk.CTkFrame):
         )
 
         self.place(x=0, y=0)
+        self.place_forget()
+        
 
         self.widgets()
         self.animate()
@@ -35,4 +37,4 @@ class EvalFrame(ctk.CTkFrame):
                                    fg_color=self.tmn.get("surface"))
 
     def animate(self):
-        self.card1.place(x=390, y=400, anchor='center')
+        self.card1.place(x=272, y=320)

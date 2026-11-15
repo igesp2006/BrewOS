@@ -26,6 +26,7 @@ class BrewFrame(ctk.CTkFrame):
 
         
         self.place(x=0,y=0)
+        self.place_forget()
 
         self.widgets()
         self.animate()
@@ -62,5 +63,5 @@ class BrewFrame(ctk.CTkFrame):
 
   
 
-        self.card1.place(x=225,y=400,anchor='center')
-        self.card2.place(x=555,y=400,anchor='center')
+        self.card1.place(x=145,y=320)
+        self.card2.place(x=400,y=320)
