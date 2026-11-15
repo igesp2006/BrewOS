@@ -16,7 +16,7 @@ class HomePage(ctk.CTkFrame):
         self.tmn = theme_manager
         self.imn = icon_manager   
 
-        self.load_manager = load_manager
+        self.load_wfwm = load_manager
 
 
         super().__init__(
@@ -60,7 +60,7 @@ class HomePage(ctk.CTkFrame):
                                              hover_color=self.tmn.get("accent_hover"),
                                              image=self.imn.get_icon("plus",self.tmn.get("accent")),
                                              compound='left',
-                                             command=self.load_manager)
+                                             command=lambda:self.load_wfwm('wfwm'))
 
 
 
