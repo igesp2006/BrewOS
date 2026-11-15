@@ -2,6 +2,8 @@ import customtkinter as ctk
 from app.ui.ui_utility.animations import slide, fade_in
 from app.ui.theme.manager import ThemeManager,IconManager
 from app.ui.window.WorkFlowWindow.wfm_cards.preparation.prep_frame import PrepFrame
+from app.ui.window.WorkFlowWindow.wfm_cards.brewing.brew_frame import BrewFrame
+from app.ui.window.WorkFlowWindow.wfm_cards.evaluation.eval_frame import EvalFrame
 
 
 class WorkflowWindowManager(ctk.CTkFrame):
@@ -26,12 +28,22 @@ class WorkflowWindowManager(ctk.CTkFrame):
 
 
         self.prep_f = PrepFrame(self.mainframe,self.tmn,self.imn)
+        self.brew_f = BrewFrame(self.mainframe,self.tmn,self.imn)
+        self.eval_f = EvalFrame(self.mainframe,self.tmn,self.imn)
       
 
+        self.page_hash = {
+            "basics": [self.prep_f, self.basics_tab],
+            "brew": [self.brew_f, self.brew_tab],
+            "evaluate": [self.eval_f, self.eval_tab],
+        }
 
 
-        self.page_hash = {}
+        self.prep_f.place(x=0,y=0)
+        self.prep_f.animate()
 
+
+       
 
     def switch_page(self,name:str,page:ctk.CTkFrame):
 
@@ -86,7 +98,7 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                                 compound='left',
                                                 hover=False,
                                                 bg_color=self.tmn.get("surface"),
-                                                command=None)
+                                                command=lambda: self.home('hwm'))
 
 
         self.basics_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -101,7 +113,7 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                         hover_color=self.tmn.get("accent_hover"),
                                         image=self.imn.get_icon("coffee",self.tmn.get("accent")),
                                         compound='left',
-                                        command=None)
+                                        command=lambda:self.switch_page("basics",self.prep_f))
 
 
         self.brew_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -116,7 +128,7 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                         hover_color=self.tmn.get("accent_hover"),
                                         image=self.imn.get_icon("droplets",self.tmn.get("accent")),
                                         compound='left',
-                                        command=None)
+                                        command=lambda:self.switch_page("brew",self.brew_f))
 
 
         self.eval_tab = ctk.CTkButton(self.sidebarleftframe,
@@ -131,7 +143,7 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                         hover_color=self.tmn.get("accent_hover"),
                                         image=self.imn.get_icon("file-check",self.tmn.get("accent")),
                                         compound='left',
-                                        command=None)
+                                        command=lambda:self.switch_page("evaluate",self.eval_f))
 
 
 
