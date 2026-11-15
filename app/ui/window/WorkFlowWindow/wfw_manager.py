@@ -13,6 +13,8 @@ class WorkflowWindowManager(ctk.CTkFrame):
         self.tmn = ThemeManager()
         self.imn = IconManager()
 
+        self.load_home_page = load_manager
+
         super().__init__(
             parent,
             width=1000,
@@ -98,7 +100,7 @@ class WorkflowWindowManager(ctk.CTkFrame):
                                                 compound='left',
                                                 hover=False,
                                                 bg_color=self.tmn.get("surface"),
-                                                command=lambda: self.home('hwm'))
+                                                command=lambda: self.load_home_page('hwm'))
 
 
         self.basics_tab = ctk.CTkButton(self.sidebarleftframe,
