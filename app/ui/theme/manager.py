@@ -75,3 +75,31 @@ class IconManager:
 
         self.cache[key] = icon
         return icon
+
+        
+
+class ImageManager:
+    
+    def __init__(self, icon_dir="assets/button_images"):
+
+        self.icon_dir = Path(icon_dir)
+        self.cache = {}
+
+    def get_image(self,name,size_x,size_y):
+
+        key = (name,size_x,size_y)
+        
+        if key in self.cache:
+            return self.cache[key]
+
+
+        path = self.icon_dir / f"{name}.png"
+
+        image = Image.open(path)
+        create_image = ctk.CTkImage(light_image=image,
+                                    dark_image=image,
+                                    size=(size_x,size_y))
+
+        self.cache[key] = create_image
+        return create_image
+
