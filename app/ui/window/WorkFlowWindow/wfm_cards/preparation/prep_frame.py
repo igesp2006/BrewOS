@@ -61,8 +61,8 @@ class PrepFrame(ctk.CTkFrame):
                                   height=450,
                                   hover=False,
                                   corner_radius=20,
-                                  border_color=self.tmn.get('accent_hover'),
-                                  border_width=3,
+                                #   border_color=self.tmn.get('accent_hover'),
+                                #   border_width=3,
                                   fg_color=self.tmn.get("surface"))
 
 
@@ -100,8 +100,8 @@ class PrepFrame(ctk.CTkFrame):
                                   height=450,
                                   hover=False,
                                   corner_radius=20,
-                                  border_color=self.tmn.get('accent_hover'),
-                                  border_width=3,
+                                #   border_color=self.tmn.get('accent_hover'),
+                                #   border_width=3,
                                   fg_color=self.tmn.get("surface"))
 
 
@@ -139,8 +139,8 @@ class PrepFrame(ctk.CTkFrame):
                                   height=450,
                                   hover=False,
                                   corner_radius=20,
-                                  border_color=self.tmn.get('accent_hover'),
-                                  border_width=3,
+                                #   border_color=self.tmn.get('accent_hover'),
+                                #   border_width=3,
                                   fg_color=self.tmn.get("surface"))
 
 
