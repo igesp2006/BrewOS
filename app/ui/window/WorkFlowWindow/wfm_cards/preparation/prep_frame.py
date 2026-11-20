@@ -39,6 +39,7 @@ class PrepFrame(ctk.CTkFrame):
         self.animate()
 
 
+
     def create_heading(self):
 
         self.title_label = ctk.CTkLabel(self,
@@ -68,7 +69,7 @@ class PrepFrame(ctk.CTkFrame):
 
         self.card1_image = ctk.CTkLabel(self.card1,
                                         text='',
-                                        image=self.imgm.get_image('gunnybag',205,280))
+                                        image=self.imgm.get_image('gunnybag',190,265))
 
         self.card1_icon = ctk.CTkLabel(self.card1,
                                        text='',
@@ -107,7 +108,7 @@ class PrepFrame(ctk.CTkFrame):
 
         self.card2_image = ctk.CTkLabel(self.card2,
                                         text='',
-                                        image=self.imgm.get_image('checklist',205,280))
+                                        image=self.imgm.get_image('checklist',190,265))
 
         self.card2_icon = ctk.CTkLabel(self.card2,
                                        text='',
@@ -146,7 +147,7 @@ class PrepFrame(ctk.CTkFrame):
 
         self.card3_image = ctk.CTkLabel(self.card3,
                                         text='',
-                                        image=self.imgm.get_image('pourover',205,280))
+                                        image=self.imgm.get_image('pourover',190,265))
 
         self.card3_icon = ctk.CTkLabel(self.card3,
                                        text='',
@@ -180,9 +181,9 @@ class PrepFrame(ctk.CTkFrame):
         self.card2.place(x=270,y=112)
         self.card3.place(x=530,y=112)
 
-        self.card1_image.place(x=10,y=10)
-        self.card2_image.place(x=10,y=10)
-        self.card3_image.place(x=10,y=10)
+        self.card1_image.place(x=17,y=15)
+        self.card2_image.place(x=17,y=15)
+        self.card3_image.place(x=17,y=15)
 
         self.card1_icon.place(x=24,y=310)
         self.card2_icon.place(x=24,y=310)

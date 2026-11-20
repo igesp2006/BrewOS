@@ -32,18 +32,22 @@ class BrewFrame(ctk.CTkFrame):
 
 
     def create_heading(self):
-        self.title_label = ctk.CTkLabel(
-            self,
-            text="Brewing",
-            text_color=self.tmn.get("text"),
-            font=("Georgia", 38, "bold", "underline"),
-            anchor="w")
-        self.subtitle_label = ctk.CTkLabel(
-            self,
-            text="Shape the flow and strength of your brew",
-            text_color=self.tmn.get("text_muted"),
-            font=self.tmn.font(size=20, formatting="bold"),
-            anchor="w")
+
+
+        self.title_label = ctk.CTkLabel(self,
+                                        text="Brewing",
+                                        text_color=self.tmn.get("text"),
+                                        font=("Georgia", 38, "bold", "underline"),
+                                        anchor="w")
+
+        
+        self.subtitle_label = ctk.CTkLabel(self,
+                                            text="Shape the flow and strength of your brew",
+                                            text_color=self.tmn.get("text_muted"),
+                                            font=self.tmn.font(size=20, formatting="bold"),
+                                            anchor="w")
+
+
 
 
     def widgets(self):
@@ -60,43 +64,60 @@ class BrewFrame(ctk.CTkFrame):
                                   corner_radius=20,
                                   fg_color=self.tmn.get("surface"))
 
-        self.card1_image = ctk.CTkLabel(
-            self.card1, text="",
-            image=self.imgm.get_image("pouring_card_pourover_bloom", 310, 310))
-        self.card1_icon = ctk.CTkLabel(
-            self.card1, text="",
-            image=self.imn.get_icon("droplets", self.tmn.get("accent"), 32))
-        self.card1_title = ctk.CTkLabel(
-            self.card1, text="Pouring",
-            text_color=self.tmn.get("text"),
-            font=("Georgia", 30, "bold"), anchor="w")
-        self.card1_description = ctk.CTkLabel(
-            self.card1, text="Control the flow of your brew.",
-            text_color=self.tmn.get("text_muted"),
-            font=self.tmn.font(size=15), anchor="w")
-        self.card1_explore = ctk.CTkLabel(
-            self.card1, text="Explore  →",
-            text_color=self.tmn.get("accent"),
-            font=self.tmn.font(size=15, formatting="bold"), anchor="w")
+        self.card1_image = ctk.CTkLabel(self.card1, 
+                                        text="",
+                                        image=self.imgm.get_image("bloom", 310, 310))
 
-        self.card2_image = ctk.CTkLabel(
-            self.card2, text="",
-            image=self.imgm.get_image("extraction_card_coffee_cup", 310, 310))
-        self.card2_icon = ctk.CTkLabel(
-            self.card2, text="",
-            image=self.imn.get_icon("pipette", self.tmn.get("accent"), 32))
-        self.card2_title = ctk.CTkLabel(
-            self.card2, text="Extraction",
-            text_color=self.tmn.get("text"),
-            font=("Georgia", 30, "bold"), anchor="w")
-        self.card2_description = ctk.CTkLabel(
-            self.card2, text="Dial in your extraction.",
-            text_color=self.tmn.get("text_muted"),
-            font=self.tmn.font(size=15), anchor="w")
-        self.card2_explore = ctk.CTkLabel(
-            self.card2, text="Explore  →",
-            text_color=self.tmn.get("accent"),
-            font=self.tmn.font(size=15, formatting="bold"), anchor="w")
+        
+        self.card1_icon = ctk.CTkLabel(self.card1, 
+                                        text="",
+                                        image=self.imn.get_icon("droplets", self.tmn.get("accent"), 32))
+
+        
+        self.card1_title = ctk.CTkLabel(self.card1, 
+                                        text="Pouring",
+                                        text_color=self.tmn.get("text"),
+                                        font=("Georgia", 30, "bold"), anchor="w")
+
+        
+        self.card1_description = ctk.CTkLabel(self.card1, 
+                                        text="Control the flow of your brew.",
+                                        text_color=self.tmn.get("text_muted"),
+                                        font=self.tmn.font(size=15), anchor="w")
+
+        
+        self.card1_explore = ctk.CTkLabel(self.card1, 
+                                        text="Explore  →",
+                                        text_color=self.tmn.get("accent"),
+                                        font=self.tmn.font(size=15, formatting="bold"), anchor="w")
+
+
+        self.card2_image = ctk.CTkLabel(self.card2, 
+                                        text="",
+                                        image=self.imgm.get_image("coffeecup", 310, 310))
+
+        
+        self.card2_icon = ctk.CTkLabel(self.card2, 
+                                       text="",
+                                        image=self.imn.get_icon("pipette", self.tmn.get("accent"), 32))
+
+        
+        self.card2_title = ctk.CTkLabel(self.card2, 
+                                        text="Extraction",
+                                        text_color=self.tmn.get("text"),
+                                        font=("Georgia", 30, "bold"), anchor="w")
+
+        
+        self.card2_description = ctk.CTkLabel(self.card2, 
+                                            text="Dial in your extraction.",
+                                            text_color=self.tmn.get("text_muted"),
+                                            font=self.tmn.font(size=15), anchor="w")
+
+        
+        self.card2_explore = ctk.CTkLabel(self.card2, 
+                                            text="Explore  →",
+                                            text_color=self.tmn.get("accent"),
+                                            font=self.tmn.font(size=15, formatting="bold"), anchor="w")
         
 
     def animate(self):
